@@ -137,21 +137,23 @@ def main():
     bom_rows = []
 
     # Section 1: Drive System
-    st.markdown('<div class="section-card"><div class="section-title">1 — Drive system</div>', unsafe_allow_html=True)
     drive_df = get_section(df, "drive_system")
     drive_options = drive_df["label"].tolist()
     drive_pns = dict(zip(drive_df["label"], drive_df["part_number"]))
+    drive_display = st.session_state.get("drive_radio", drive_options[0])
+    st.markdown(f'<div class="section-card"><div class="section-title">1 — Drive system: {drive_display}</div>', unsafe_allow_html=True)
     drive_sel = st.radio("Drive system", drive_options, label_visibility="collapsed", key="drive_radio", horizontal=True)
     if drive_sel:
         bom_rows.append({"Part Number": drive_pns[drive_sel], "Description": drive_sel, "Qty": 1, "Category": "Drive System"})
     st.markdown("</div>", unsafe_allow_html=True)
 
     # Section 2: Battery Pack
-    st.markdown('<div class="section-card"><div class="section-title">2 — HV battery pack</div>', unsafe_allow_html=True)
     batt_df = get_section(df, "battery_pack")
     batt_options = batt_df["label"].tolist()
     batt_pns = dict(zip(batt_df["label"], batt_df["part_number"]))
     batt_qtys = dict(zip(batt_df["label"], batt_df["qty"].astype(int)))
+    batt_display = st.session_state.get("batt_radio", batt_options[0])
+    st.markdown(f'<div class="section-card"><div class="section-title">2 — HV battery pack: {batt_display}</div>', unsafe_allow_html=True)
     batt_sel = st.radio("Battery pack", batt_options, label_visibility="collapsed", key="batt_radio", horizontal=True)
     if batt_sel:
         bom_rows.append({"Part Number": batt_pns[batt_sel], "Description": batt_sel, "Qty": batt_qtys[batt_sel], "Category": "HV Battery"})
