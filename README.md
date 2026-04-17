@@ -1,16 +1,15 @@
-# Marine Propulsion Configurator
+﻿# Vita Configurator
 
-Streamlit app for configuring electric marine propulsion systems and generating a top-level Bill of Materials.
+Internal tool for configuring electric marine propulsion systems and generating a top-level Bill of Materials.
 
-## Running locally
-```
-pip install -r requirements.txt
-streamlit run app.py
-```
+## Access
+Visit the live app and enter the password when prompted.
 
 ## Updating options
-Edit `data/configurator.csv` and commit to GitHub. The live app refreshes automatically within 60 seconds.
+Edit `data/configurator.csv` directly in GitHub. The live app refreshes automatically within 60 seconds.
 
-## Password
-Set `APP_PASSWORD` in the Streamlit Cloud secrets dashboard.
-Default password: marine2024
+## Tech stack
+- Streamlit (UI)
+- pandas (data)
+- GitHub (source and data storage)
+- Streamlit Community Cloud (hosting)
