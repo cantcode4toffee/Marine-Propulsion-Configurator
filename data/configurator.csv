@@ -1,32 +1,65 @@
-section,group_id,option_id,label,part_number,qty,harness_lengths,default_length,pn_pattern,harness_id
-drive_system,drive_system,d_inboard,Inboard motor +120 HP,EPT-INB-120,1,,,,
-drive_system,drive_system,d_outboard,Outboard motor +120 HP,EPT-OUT-120,1,,,,
-battery_pack,battery_pack,b_x2,2 x HV Battery 24 kWh,HVB-24-X2,2,,,,
-battery_pack,battery_pack,b_x3,3 x HV Battery 24 kWh,HVB-24-X3,3,,,,
-battery_pack,battery_pack,b_x4,4 x HV Battery 24 kWh,HVB-24-X4,4,,,,
-included_items,included_items,inc_display,Display 5 inch,UI-DISP-5IN,1,,,,
-included_items,included_items,inc_kill,Kill cord,SAFE-KILL-01,1,,,,
-included_items,included_items,inc_ac,6.5 kW AC charging,CHG-AC-6K5,1,,,,
-included_items,included_items,inc_dc,DC charging,CHG-DC-STD,1,,,,
-harness,h_inb_con,h_inb_con,Inboard to console controller,,1,2M|3M|4M|5M|6M,3M,HRN-INB-CON-{LENGTH},
-harness,h_inb_hvb1,h_inb_hvb1,Inboard to HV battery no.1,,1,2M|3M|4M|5M|6M,3M,HRN-INB-HVB1-{LENGTH},
-harness,h_hvb1_hvb2,h_hvb1_hvb2,HV battery no.1 to no.2,,1,0M5|1M|1M5|2M,1M,HRN-HVB1-HVB2-{LENGTH},
-harness,h_chg_inb,h_chg_inb,Charger to inboard,,1,2M|3M|4M|5M,3M,HRN-CHG-INB-{LENGTH},
-harness_pn_lookup,,,2M,HRN-INB-CON-2M,,,,,h_inb_con
-harness_pn_lookup,,,3M,HRN-INB-CON-3M,,,,,h_inb_con
-harness_pn_lookup,,,4M,HRN-INB-CON-4M,,,,,h_inb_con
-harness_pn_lookup,,,5M,HRN-INB-CON-5M,,,,,h_inb_con
-harness_pn_lookup,,,6M,HRN-INB-CON-6M,,,,,h_inb_con
-harness_pn_lookup,,,2M,HRN-INB-HVB1-2M,,,,,h_inb_hvb1
-harness_pn_lookup,,,3M,HRN-INB-HVB1-3M,,,,,h_inb_hvb1
-harness_pn_lookup,,,4M,HRN-INB-HVB1-4M,,,,,h_inb_hvb1
-harness_pn_lookup,,,5M,HRN-INB-HVB1-5M,,,,,h_inb_hvb1
-harness_pn_lookup,,,6M,HRN-INB-HVB1-6M,,,,,h_inb_hvb1
-harness_pn_lookup,,,0M5,HRN-HVB1-HVB2-0M5,,,,,h_hvb1_hvb2
-harness_pn_lookup,,,1M,HRN-HVB1-HVB2-1M,,,,,h_hvb1_hvb2
-harness_pn_lookup,,,1M5,HRN-HVB1-HVB2-1M5,,,,,h_hvb1_hvb2
-harness_pn_lookup,,,2M,HRN-HVB1-HVB2-2M,,,,,h_hvb1_hvb2
-harness_pn_lookup,,,2M,HRN-CHG-INB-2M,,,,,h_chg_inb
-harness_pn_lookup,,,3M,HRN-CHG-INB-3M,,,,,h_chg_inb
-harness_pn_lookup,,,4M,HRN-CHG-INB-4M,,,,,h_chg_inb
-harness_pn_lookup,,,5M,HRN-CHG-INB-5M,,,,,h_chg_inb
+section,group_id,option_id,label,part_number,qty,harness_lengths,default_length,pn_pattern,harness_id,conditions,source_type,category,sort_order,notes
+market,market,m_eu,Europe CCS2,,1,,,,,,selectable,Region,10,Use to drive CCS harness family.
+market,market,m_na,North America CCS1,,1,,,,,,selectable,Region,20,Use to drive CCS harness family.
+drive_system,drive_system,d_inboard,Inboard motor +120 HP,2004596,1,,,,,,selectable,Drive System,30,IBB Gen2 motorskid from source workbook.
+drive_system,drive_system,d_outboard,Outboard motor +120 HP,EPT-OUT-120,1,,,,,,selectable,Drive System,40,Keep placeholder until outboard workbook/rules are available.
+battery_pack,battery_pack,b_x2,2 x HV Battery 24 kWh,2004597,2,,,,,,selectable,HV Battery,50,48 kWh total.
+battery_pack,battery_pack,b_x3,3 x HV Battery 24 kWh,2004597,3,,,,,,selectable,HV Battery,60,72 kWh total.
+battery_pack,battery_pack,b_x4,4 x HV Battery 24 kWh,2004597,4,,,,,,selectable,HV Battery,70,96 kWh total.
+display_screen,display_screen,scr_nf10,NextFour 10 inch,2000194,1,,,,,,selectable,Helm,80,
+display_screen,display_screen,scr_nf16,NextFour 16 inch,2001525,1,,,,,,selectable,Helm,90,
+display_screen,display_screen,scr_ray9,Raymarine 9 inch,2003691,1,,,,,,selectable,Helm,100,
+throttle,throttle,thr_dometic,Dometic,2000069,1,,,,,,selectable,Helm,110,
+throttle,throttle,thr_xenta,Xenta,2003722,1,,,,,,selectable,Helm,120,
+drive_interface,drive_interface,drv_stern,Stern Drive,2004512,1,,,,drive_system=d_inboard,,selectable,Drive Interface,130,LV5.1 - Transom.
+drive_interface,drive_interface,drv_shaft,Shaft Drive,UPON-REQUEST,1,,,,drive_system=d_inboard,,selectable,Drive Interface,140,LV5.1 - Upon request in source workbook.
+drive_interface,drive_interface,drv_jet,Jet Drive,UPON-REQUEST,1,,,,drive_system=d_inboard,,selectable,Drive Interface,150,LV5.1 - Upon request in source workbook.
+included_items,included_items,inc_dash_kit,Dash Kit (Key Cord + Dash controller (eBrain) + Fixings),2004622,1,,,,,,included,Included Item,160,Always included.
+included_items,included_items,inc_end_plug,Battery End Plug Kit (LV & HV),2004634,1,,,,,,included,Included Item,170,Always included.
+included_items,included_items,inc_battery_feet,Battery Feet Kit (customer to source their own),N/A,customer_defined,,,,,,info,Customer Supplied,180,Customer-supplied. Example note retained from source workbook.
+derived_item,dash_harness,dash_xenta_ray,LV7.1 - Dash (Xenta + Raymarine),2004520,1,,,,,display_screen=scr_ray9;throttle=thr_xenta,derived,Harness,190,Match with throttle and screen.
+derived_item,dash_harness,dash_xenta_nf,LV7.2 - Dash (Xenta + NextFour),2004631,1,,,,,display_screen=scr_nf10|scr_nf16;throttle=thr_xenta,derived,Harness,200,Works for 10 inch and 16 inch NextFour.
+derived_item,dash_harness,dash_dometic_nf,LV7.3 - Dash (Dometic + NextFour),2004632,1,,,,,display_screen=scr_nf10|scr_nf16;throttle=thr_dometic,derived,Harness,210,Works for 10 inch and 16 inch NextFour.
+derived_item,dash_harness,dash_dometic_ray,LV7.4 - Dash (Dometic + Raymarine),2004633,1,,,,,display_screen=scr_ray9;throttle=thr_dometic,derived,Harness,220,
+harness,h_ccs,h_ccs_eu,HV1.1 / LV8.1 - CCS2 inlet to Motorskid,,1,1M|2M|3M|4M|5M,1M,lookup,h_ccs_eu,market=m_eu,harness,Harness,230,Distance from CCS inlet to Motorskid.
+harness,h_ccs,h_ccs_na,HV1.1 / LV8.1 - CCS1 inlet to Motorskid,,1,1M|2M|3M|4M|5M,1M,lookup,h_ccs_na,market=m_na,harness,Harness,240,Distance from CCS inlet to Motorskid.
+harness,h_hv2_sel1,h_hv2_sel1,HV2.1 - Motorskid to HV battery no.1,,1,1M|2M|3M|4M|5M,1M,lookup,h_hv2,drive_system=d_inboard;battery_pack=b_x2|b_x3|b_x4,harness,Harness,250,Selection 1 from Motorskid to 1st battery.
+harness,h_hv2_sel2,h_hv2_sel2,HV2.1 - Motorskid to HV battery no.2,,1,1M|2M|3M|4M|5M,1M,lookup,h_hv2,drive_system=d_inboard;battery_pack=b_x2|b_x3|b_x4,harness,Harness,260,Selection 2 from Motorskid to 2nd battery.
+harness,h_hv3_sel3,h_hv3_sel3,HV3.1 - HV battery no.1 to no.3,,1,1M|2M|3M|4M|5M,1M,lookup,h_hv3,battery_pack=b_x3|b_x4,harness,Harness,270,Selection 3 from 1st battery to 3rd battery.
+harness,h_hv3_sel4,h_hv3_sel4,HV3.1 - HV battery no.2 to no.4,,1,1M|2M|3M|4M|5M,1M,lookup,h_hv3,battery_pack=b_x4,harness,Harness,280,Selection 4 from 2nd battery to 4th battery.
+harness,h_lvpe_sel1,h_lvpe_sel1,LV1.1 / PE1.1 - Motorskid to HV battery no.1,,1,1M|2M|3M|4M|5M,1M,lookup,h_lvpe,battery_pack=b_x2|b_x3|b_x4,harness,Harness,290,Selection 1 from Motorskid to 1st battery.
+harness,h_lvpe_sel2,h_lvpe_sel2,LV1.1 / PE1.1 - HV battery no.1 to no.2,,1,1M|2M|3M|4M|5M,1M,lookup,h_lvpe,battery_pack=b_x2|b_x3|b_x4,harness,Harness,300,Selection 2 from 1st battery to 2nd battery.
+harness,h_lvpe_sel3,h_lvpe_sel3,LV1.1 / PE1.1 - HV battery no.2 to no.3,,1,1M|2M|3M|4M|5M,1M,lookup,h_lvpe,battery_pack=b_x3|b_x4,harness,Harness,310,Selection 3 from 2nd battery to 3rd battery.
+harness,h_lvpe_sel4,h_lvpe_sel4,LV1.1 / PE1.1 - HV battery no.3 to no.4,,1,1M|2M|3M|4M|5M,1M,lookup,h_lvpe,battery_pack=b_x4,harness,Harness,320,Selection 4 from 3rd battery to 4th battery.
+harness,h_ebr,h_ebr,LV6.1 - Kraken to eBrain,,1,1M|4M|5M|6M|7M|8M,4M,lookup,h_ebr,drive_system=d_inboard,harness,Harness,330,Kraken on Motorskid to eBrain in console near screen and throttle.
+harness_pn_lookup,,,1M,2004550-1,,,,,h_ccs_eu,,lookup,Lookup,400,CCS2 - 1M
+harness_pn_lookup,,,2M,2004550-2 & 2004530-1,,,,,h_ccs_eu,,lookup,Lookup,401,CCS2 - 2M
+harness_pn_lookup,,,3M,2004550-3 & 2004530-2,,,,,h_ccs_eu,,lookup,Lookup,402,CCS2 - 3M
+harness_pn_lookup,,,4M,2004550-4 & 2004530-3,,,,,h_ccs_eu,,lookup,Lookup,403,CCS2 - 4M
+harness_pn_lookup,,,5M,2004550-5 & 2004530-4,,,,,h_ccs_eu,,lookup,Lookup,404,CCS2 - 5M
+harness_pn_lookup,,,1M,2004550-11,,,,,h_ccs_na,,lookup,Lookup,410,CCS1 - 1M
+harness_pn_lookup,,,2M,2004550-12 & 2004530-1,,,,,h_ccs_na,,lookup,Lookup,411,CCS1 - 2M
+harness_pn_lookup,,,3M,2004550-13 & 2004530-2,,,,,h_ccs_na,,lookup,Lookup,412,CCS1 - 3M
+harness_pn_lookup,,,4M,2004550-14 & 2004530-3,,,,,h_ccs_na,,lookup,Lookup,413,CCS1 - 4M
+harness_pn_lookup,,,5M,2004550-15 & 2004530-4,,,,,h_ccs_na,,lookup,Lookup,414,CCS1 - 5M
+harness_pn_lookup,,,1M,2004630-1,,,,,h_hv2,,lookup,Lookup,420,HV2.1 - 1M
+harness_pn_lookup,,,2M,2004630-2,,,,,h_hv2,,lookup,Lookup,421,HV2.1 - 2M
+harness_pn_lookup,,,3M,2004630-3,,,,,h_hv2,,lookup,Lookup,422,HV2.1 - 3M
+harness_pn_lookup,,,4M,2004630-4,,,,,h_hv2,,lookup,Lookup,423,HV2.1 - 4M
+harness_pn_lookup,,,5M,2004630-5,,,,,h_hv2,,lookup,Lookup,424,HV2.1 - 5M
+harness_pn_lookup,,,1M,2004594-1,,,,,h_hv3,,lookup,Lookup,430,HV3.1 - 1M
+harness_pn_lookup,,,2M,2004594-2,,,,,h_hv3,,lookup,Lookup,431,HV3.1 - 2M
+harness_pn_lookup,,,3M,2004594-3,,,,,h_hv3,,lookup,Lookup,432,HV3.1 - 3M
+harness_pn_lookup,,,4M,2004594-4,,,,,h_hv3,,lookup,Lookup,433,HV3.1 - 4M
+harness_pn_lookup,,,5M,2004594-5,,,,,h_hv3,,lookup,Lookup,434,HV3.1 - 5M
+harness_pn_lookup,,,1M,2004508-1 & 2004635-1,,,,,h_lvpe,,lookup,Lookup,440,LV1.1 + PE1.1 - 1M
+harness_pn_lookup,,,2M,2004508-2 & 2004635-2,,,,,h_lvpe,,lookup,Lookup,441,LV1.1 + PE1.1 - 2M
+harness_pn_lookup,,,3M,2004508-3 & 2004635-3,,,,,h_lvpe,,lookup,Lookup,442,LV1.1 + PE1.1 - 3M
+harness_pn_lookup,,,4M,2004508-4 & 2004635-4,,,,,h_lvpe,,lookup,Lookup,443,LV1.1 + PE1.1 - 4M
+harness_pn_lookup,,,5M,2004508-5 & 2004635-5,,,,,h_lvpe,,lookup,Lookup,444,LV1.1 + PE1.1 - 5M
+harness_pn_lookup,,,1M,2004513-1,,,,,h_ebr,,lookup,Lookup,450,LV6.1 - 1M
+harness_pn_lookup,,,4M,2004513-4,,,,,h_ebr,,lookup,Lookup,451,LV6.1 - 4M
+harness_pn_lookup,,,5M,2004513-5,,,,,h_ebr,,lookup,Lookup,452,LV6.1 - 5M
+harness_pn_lookup,,,6M,2004513-6,,,,,h_ebr,,lookup,Lookup,453,LV6.1 - 6M
+harness_pn_lookup,,,7M,2004513-7,,,,,h_ebr,,lookup,Lookup,454,LV6.1 - 7M
+harness_pn_lookup,,,8M,2004513-8,,,,,h_ebr,,lookup,Lookup,455,LV6.1 - 8M
